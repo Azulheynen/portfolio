@@ -9,7 +9,7 @@ export default function Home() {
       <link></link>
     </Head>
 
-    <main className="text-red-500">
+    <main className="text-blue-500">
       <p>placehoder</p>
     </main>
   </div>
