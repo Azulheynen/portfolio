@@ -1,51 +1,87 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Tab } from "@headlessui/react";
-import Masonry from "react-masonry-css"
+import Masonry from "react-masonry-css";
 import classNames from "classnames";
 import Image from "next/image";
-
-
-import platiuno from '../public/platiuno.jpg'
-import platidos from '../public/platidos.png'
-import platitres from '../public/platitres.png'
-import platicuatro from '../public/platicuatro.png'
-import honguito from '../public/honguito.png'
-import honguitouno from '../public/honguitouno.png'
-import honguitodos from '../public/honguitodos.png'
-
+import bgImage from "../public/background.jpeg";
+import platiuno from "../public/platiuno.jpg";
+import platidos from "../public/platidos.png";
+import platitres from "../public/platitres.png";
+import platicuatro from "../public/platicuatro.png";
+import honguito from "../public/honguito.png";
+import honguitouno from "../public/honguitouno.png";
+import honguitodos from "../public/honguitodos.png";
+import platicinco from "../public/platicinco.png";
+import platiseis from "../public/platiseis.png";
+import platisiete from "../public/platisiete.png";
+import platiocho from "../public/platiocho.png";
+import platinueve from "../public/platinueve.png";
+import platidiez from "../public/platidiez.png";
+import honguitotres from "../public/honguitotres.png";
+import honguitocuatro from "../public/honguitocuatro.png";
+import honguitocinco from "../public/honguitocinco.png";
+import honguitoseis from "../public/honguitoseis.png";
+import honguitosiete from "../public/honguitosiete.png";
 
 const tabs = [
   {
-    key:'all',
-    display: 'All'
+    key: "all",
+    display: "All",
   },
   {
-    key:'digital',
-    display:'Digital'
+    key: "digital",
+    display: "Digital",
   },
 
   {
-    key:'more',
-    display:'More' 
+    key: "more",
+    display: "More",
   },
-]
+];
 
 const images = [
+  
+  platidiez,
+  honguitotres,
+  honguitocuatro,
+  honguitocinco,
+  platiuno,
+  platidos,
+  platinueve,
+  platitres,
+  platicuatro,
+  honguito,
+  honguitouno,
+  honguitodos,
+  platicinco,
+  platiseis,
+  platisiete,
+  platiocho,
 
-]
-
+  honguitoseis,
+  honguitosiete,
+];
 
 export default function Home() {
   return (
-    <div className=" h-full bg-[url('/fotodos.avif')] bg-cover overflow-auto">
+    <div className=" h-full overflow-auto ">
       <Head>
         <title>my portfolio </title>
         <meta></meta>
         <link></link>
       </Head>
-      <header className="bg-stone-900 fixed top-0 w-full z-10 flex justify-between items-center h-[70px] px-10">
-       
+
+      <Image
+        className="fixed left-0 top-0 z-0"
+        src={bgImage}
+        alt="placeholder"
+        placeholder="blur"
+      />
+
+      <div className="fixed left-0 top-0 w-full h-full z-10 from-stone-800 bg-gradient-to-t"></div>
+
+      <header className="fixed top-0 w-full z-30 flex justify-between items-center h-[70px] px-10">
         <span className="uppercase text-lg font-medium">Portfolio</span>
         <Link
           href="#"
@@ -55,34 +91,41 @@ export default function Home() {
         </Link>
       </header>
 
-      <main className="pt-[110px]">
+      <main className="relative pt-[110px] z-20">
         <div className="flex flex-col items-center h-full">
-          <Tab.Group >
+          <Tab.Group>
             <Tab.List className="flex items center gap-24 font-thin ">
-
-            {tabs.map(tab => (
+              {tabs.map((tab) => (
                 <Tab key={tab.key} className="p-2">
-                {({ selected }) => (
-                  <span className={ classNames("uppercase text-lg ", selected ? 'text-white' : 'text-stone-600')}>
-                    {tab.display}
-                  </span>
-                )}
-              </Tab>
-
-            ))}
+                  {({ selected }) => (
+                    <span
+                      className={classNames(
+                        "uppercase text-lg ",
+                        selected ? "text-white" : "text-stone-600"
+                      )}
+                    >
+                      {tab.display}
+                    </span>
+                  )}
+                </Tab>
+              ))}
             </Tab.List>
-            <Tab.Panels  className=" h-full  max-w-[900px] w-full p-2 sm:p-4 my-6">
-              <Tab.Panel >
-                <Masonry breakpointCols={2}  className="flex gap-4" columnClassName="">
-                  
-                <Image  src={platiuno} alt= "placeholder" className="my-4" />
-                <Image  src={platidos} alt= "placeholder" className="my-4" />
-                <Image  src={platitres} alt= "placeholder" className="my-4" />
-                <Image  src={platicuatro} alt= "placeholder" className="my-4" />
-                <Image  src={honguito} alt= "placeholder" className="my-4" />
-                <Image  src={honguitouno} alt= "placeholder" className="my-4" />
-                <Image  src={honguitodos} alt= "placeholder" className="my-4" />
-
+            <Tab.Panels className=" h-full  max-w-[900px] w-full p-2 sm:p-4 my-6">
+              <Tab.Panel>
+                <Masonry
+                  breakpointCols={2}
+                  className="flex gap-4"
+                  columnClassName=""
+                >
+                  {images.map((image) => (
+                    <Image
+                      key={image.src}
+                      src={image}
+                      alt="placeholder"
+                      className="my-9"
+                      placeholder="blur"
+                    />
+                  ))}
                 </Masonry>
               </Tab.Panel>
               <Tab.Panel>Digital</Tab.Panel>
@@ -91,7 +134,7 @@ export default function Home() {
           </Tab.Group>
         </div>
       </main>
-      <footer className="h-[90px] flex justicy-center items-center uppercase text-lg font-medium ">
+      <footer className=" relative h-[80px] flex justicy-center items-center uppercase text-lg font-medium z-20">
         <p>IA images generated Portfolio</p>
       </footer>
     </div>
