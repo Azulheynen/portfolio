@@ -24,6 +24,16 @@ import honguitocinco from "../public/honguitocinco.png";
 import honguitoseis from "../public/honguitoseis.png";
 import honguitosiete from "../public/honguitosiete.png";
 
+import LightGalleryComponent from "lightgallery/react";
+
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgZoom from "lightgallery/plugins/zoom";
+import { useRef } from "react";
+import type { LightGallery } from "lightgallery/lightgallery";
+
 const tabs = [
   {
     key: "all",
@@ -41,7 +51,6 @@ const tabs = [
 ];
 
 const images = [
-  
   platidiez,
   honguitotres,
   honguitocuatro,
@@ -64,8 +73,10 @@ const images = [
 ];
 
 export default function Home() {
+  const lightboxRef = useRef<LightGallery | null>(null);
+
   return (
-    <div className=" h-full overflow-auto ">
+    <div className=" h-full overflow-auto  ">
       <Head>
         <title>my portfolio </title>
         <meta></meta>
@@ -73,7 +84,7 @@ export default function Home() {
       </Head>
 
       <Image
-        className="fixed left-0 top-0 z-0"
+        className="fixed left-0 top-0 z-0 bg-cover w-full"
         src={bgImage}
         alt="placeholder"
         placeholder="blur"
@@ -117,16 +128,105 @@ export default function Home() {
                   className="flex gap-4"
                   columnClassName=""
                 >
-                  {images.map((image) => (
+                  {images.map((image, idx) => (
                     <Image
                       key={image.src}
                       src={image}
                       alt="placeholder"
                       className="my-9"
                       placeholder="blur"
+                      onClick={() => {
+                        lightboxRef.current?.openGallery(idx)
+                      }}
                     />
                   ))}
                 </Masonry>
+
+                <LightGalleryComponent
+                  onInit={(ref) => {
+                    if (ref) {
+                      lightboxRef.current = ref.instance;
+                    }
+                  }}
+                  speed={500}
+                  plugins={[lgThumbnail, lgZoom]}
+                  dynamic
+                  dynamicEl={[
+                    {
+                      src: "/platidiez.png",
+                      thumb: "/platidiez.png",
+                    },
+                    {
+                      src: "/platinueve.png",
+                      thumb: "/platinueve.png",
+                    },
+                    {
+                      src: "/platiocho.png",
+                      thumb: "/platiocho.png",
+                    },
+                    {
+                      src: "/platisiete.png",
+                      thumb: "/platisiete.png",
+                    },
+                    {
+                      src: "/platiseis.png",
+                      thumb: "/platiseis.png",
+                    },
+                    {
+                      src: "/platicinco.png",
+                      thumb: "/platicinco.png"
+                    },
+                    {
+                      src: "/platicuatro.png",
+                      thumb: "/platicuatro.png",
+                    },
+                    {
+                      src: "/platitres.png",
+                      thumb: "/platitres.png",
+                    },
+                    {
+                      src: "/platidos.png",
+                      thumb: "/platidos.png",
+                    },
+                    {
+                      src: "/platiuno.png",
+                      thumb: "/platiuno.png",
+                    },  
+                    {
+                      src: "/honguito.png",
+                      thumb: "/honguito.png",
+                    }, 
+                    {
+                      src: "/honguitouno.png",
+                      thumb: "/honguitouno.png",
+                    },
+                    {
+                      src: "/honguitodos.png",
+                      thumb: "/honguitodos.png",
+                    },
+                    {
+                      src: "/honguitotres.png",
+                      thumb: "/honguitotres.png",
+                    },
+                    {
+                      src: "/honguitocuatro.png",
+                      thumb: "/honguitocuatro.png",
+                    },
+                    {
+                      src: "/honguitocinco.png",
+                      thumb: "/honguitocinco.png",
+                    },
+                    {
+                      src: "/honguitoseis.png",
+                      thumb: "/honguitoseis.png",
+                    },
+                    {
+                      src: "/honguitosiete.png",
+                      thumb: "/honguitosiete.png",
+                    },
+                  ]}
+
+                ></LightGalleryComponent>
               </Tab.Panel>
               <Tab.Panel>Digital</Tab.Panel>
               <Tab.Panel>More </Tab.Panel>
