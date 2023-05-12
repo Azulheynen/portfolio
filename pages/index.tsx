@@ -23,9 +23,7 @@ import honguitocuatro from "../public/honguitocuatro.png";
 import honguitocinco from "../public/honguitocinco.png";
 import honguitoseis from "../public/honguitoseis.png";
 import honguitosiete from "../public/honguitosiete.png";
-
 import LightGalleryComponent from "lightgallery/react";
-
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
@@ -93,7 +91,7 @@ export default function Home() {
       <div className="fixed left-0 top-0 w-full h-full z-10 from-stone-800 bg-gradient-to-t"></div>
 
       <header className="fixed top-0 w-full z-30 flex justify-between items-center h-[70px] px-10">
-        <span className="uppercase text-lg font-medium">Portfolio</span>
+        <span className="uppercase text-lg font-medium hover:tracking-wide">Portfolio</span>
         <Link
           href="#"
           className="rounded-3xl bg-white text-stone-700 px-3 py-2 hover:bg-opacity-90"
@@ -105,9 +103,9 @@ export default function Home() {
       <main className="relative pt-[110px] z-20">
         <div className="flex flex-col items-center h-full">
           <Tab.Group>
-            <Tab.List className="flex items center gap-24 font-thin ">
+            <Tab.List className="flex items center gap-24 font-thin  ">
               {tabs.map((tab) => (
-                <Tab key={tab.key} className="p-2">
+                <Tab id="tab" key={tab.key} className="p-2 transition ease-in-out delay-150   hover:tracking-[6px]  hover:transition-all hover:-translate-y-1 hover:scale-110 hover:bg-black-500 duration-300 ">
                   {({ selected }) => (
                     <span
                       className={classNames(
@@ -121,7 +119,7 @@ export default function Home() {
                 </Tab>
               ))}
             </Tab.List>
-            <Tab.Panels className=" h-full  max-w-[900px] w-full p-2 sm:p-4 my-6">
+            <Tab.Panels className=" h-full  max-w-[900px] w-full p-2 sm:p-4 my-6 ">
               <Tab.Panel>
                 <Masonry
                   breakpointCols={2}
@@ -133,7 +131,7 @@ export default function Home() {
                       key={image.src}
                       src={image}
                       alt="placeholder"
-                      className="my-9 hover:opacity-70 cursor-pointer" 
+                      className="my-9 hover:opacity-90 cursor-pointer" 
                       placeholder="blur"
                       onClick={() => {
                         lightboxRef.current?.openGallery(idx)
