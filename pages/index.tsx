@@ -133,7 +133,7 @@ export default function Home() {
                       key={image.src}
                       src={image}
                       alt="placeholder"
-                      className="my-9"
+                      className="my-9 hover:opacity-70 cursor-pointer" 
                       placeholder="blur"
                       onClick={() => {
                         lightboxRef.current?.openGallery(idx)
@@ -151,80 +151,10 @@ export default function Home() {
                   speed={500}
                   plugins={[lgThumbnail, lgZoom]}
                   dynamic
-                  dynamicEl={[
-                    {
-                      src: "/platidiez.png",
-                      thumb: "/platidiez.png",
-                    },
-                    {
-                      src: "/platinueve.png",
-                      thumb: "/platinueve.png",
-                    },
-                    {
-                      src: "/platiocho.png",
-                      thumb: "/platiocho.png",
-                    },
-                    {
-                      src: "/platisiete.png",
-                      thumb: "/platisiete.png",
-                    },
-                    {
-                      src: "/platiseis.png",
-                      thumb: "/platiseis.png",
-                    },
-                    {
-                      src: "/platicinco.png",
-                      thumb: "/platicinco.png"
-                    },
-                    {
-                      src: "/platicuatro.png",
-                      thumb: "/platicuatro.png",
-                    },
-                    {
-                      src: "/platitres.png",
-                      thumb: "/platitres.png",
-                    },
-                    {
-                      src: "/platidos.png",
-                      thumb: "/platidos.png",
-                    },
-                    {
-                      src: "/platiuno.png",
-                      thumb: "/platiuno.png",
-                    },  
-                    {
-                      src: "/honguito.png",
-                      thumb: "/honguito.png",
-                    }, 
-                    {
-                      src: "/honguitouno.png",
-                      thumb: "/honguitouno.png",
-                    },
-                    {
-                      src: "/honguitodos.png",
-                      thumb: "/honguitodos.png",
-                    },
-                    {
-                      src: "/honguitotres.png",
-                      thumb: "/honguitotres.png",
-                    },
-                    {
-                      src: "/honguitocuatro.png",
-                      thumb: "/honguitocuatro.png",
-                    },
-                    {
-                      src: "/honguitocinco.png",
-                      thumb: "/honguitocinco.png",
-                    },
-                    {
-                      src: "/honguitoseis.png",
-                      thumb: "/honguitoseis.png",
-                    },
-                    {
-                      src: "/honguitosiete.png",
-                      thumb: "/honguitosiete.png",
-                    },
-                  ]}
+                  dynamicEl={ images.map((image) => ({
+                    src: image.src,
+                    thumb:image.src
+                  }))}
 
                 ></LightGalleryComponent>
               </Tab.Panel>
