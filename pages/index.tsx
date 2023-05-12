@@ -2,7 +2,17 @@ import Head from "next/head";
 import Link from "next/link";
 import { Tab } from "@headlessui/react";
 import Masonry from "react-masonry-css"
+import classNames from "classnames";
+import Image from "next/image";
 
+
+import platiuno from '../public/platiuno.jpg'
+import platidos from '../public/platidos.png'
+import platitres from '../public/platitres.png'
+import platicuatro from '../public/platicuatro.png'
+import honguito from '../public/honguito.png'
+import honguitouno from '../public/honguitouno.png'
+import honguitodos from '../public/honguitodos.png'
 
 
 const tabs = [
@@ -17,9 +27,14 @@ const tabs = [
 
   {
     key:'more',
-    display:'More'
+    display:'More' 
   },
 ]
+
+const images = [
+
+]
+
 
 export default function Home() {
   return (
@@ -29,9 +44,9 @@ export default function Home() {
         <meta></meta>
         <link></link>
       </Head>
-      <header className="bg-stone-900 fixed top-0 w-full z-10 flex justify-between items-center h-[70px] px-6">
+      <header className="bg-stone-900 fixed top-0 w-full z-10 flex justify-between items-center h-[70px] px-10">
        
-        <div >Portfolio</div>
+        <span className="uppercase text-lg font-medium">Portfolio</span>
         <Link
           href="#"
           className="rounded-3xl bg-white text-stone-700 px-3 py-2 hover:bg-opacity-90"
@@ -43,12 +58,12 @@ export default function Home() {
       <main className="pt-[110px]">
         <div className="flex flex-col items-center h-full">
           <Tab.Group >
-            <Tab.List className="flex items center gap-24">
+            <Tab.List className="flex items center gap-24 font-thin ">
 
             {tabs.map(tab => (
                 <Tab key={tab.key} className="p-2">
                 {({ selected }) => (
-                  <span className={selected ? 'text-white' : 'text-stone-600'}>
+                  <span className={ classNames("uppercase text-lg ", selected ? 'text-white' : 'text-stone-600')}>
                     {tab.display}
                   </span>
                 )}
@@ -58,15 +73,16 @@ export default function Home() {
             </Tab.List>
             <Tab.Panels  className=" h-full  max-w-[900px] w-full p-2 sm:p-4 my-6">
               <Tab.Panel >
-                <Masonry breakpointCols={2}  className="flex gap-5" columnClassName="">
-                  <img src="/platiuno.jpg" alt="plati-1" className="my-4" />
-                  <img src="/platidos.png" alt="plati-2"  className="my-4"/>
-                  <img src="/platitres.png" alt="plati-3"  className="my-4"/>
-                  <img src="/platicuatro.png" alt="plati-4" className="my-4" />
-                  <img src="/honguito.png" alt="honguito" className="my-4" />
-                  <img src="/honguitouno.png" alt="honguito-uno" className="my-4" />
-                  <img src="/honguitodos.png" alt="honguito-dos" className="my-4" />
-                
+                <Masonry breakpointCols={2}  className="flex gap-4" columnClassName="">
+                  
+                <Image  src={platiuno} alt= "placeholder" className="my-4" />
+                <Image  src={platidos} alt= "placeholder" className="my-4" />
+                <Image  src={platitres} alt= "placeholder" className="my-4" />
+                <Image  src={platicuatro} alt= "placeholder" className="my-4" />
+                <Image  src={honguito} alt= "placeholder" className="my-4" />
+                <Image  src={honguitouno} alt= "placeholder" className="my-4" />
+                <Image  src={honguitodos} alt= "placeholder" className="my-4" />
+
                 </Masonry>
               </Tab.Panel>
               <Tab.Panel>Digital</Tab.Panel>
@@ -75,7 +91,7 @@ export default function Home() {
           </Tab.Group>
         </div>
       </main>
-      <footer className="h-[60px] flex justicy-center items-center">
+      <footer className="h-[90px] flex justicy-center items-center uppercase text-lg font-medium ">
         <p>IA images generated Portfolio</p>
       </footer>
     </div>
