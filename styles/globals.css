@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer {
+    html, body {
+        height: 100%;
+        color: wheat;
+    }
+    #__next{
+        height: 100%;
+
+    }
+}
