@@ -15,8 +15,8 @@ const tabs = [
   },
 
   {
-    key:'byhand',
-    display:'Byhand'
+    key:'more',
+    display:'More'
   },
 ]
 
@@ -29,8 +29,8 @@ export default function Home() {
         <link></link>
       </Head>
       <header className="flex justify-between items-center h-[70px] px-6">
-        <div className="text transparent">hm</div>
-        <div>Portfolio</div>
+       
+        <div >Portfolio</div>
         <Link
           href="#"
           className="rounded-3xl bg-white text-stone-700 px-3 py-2 hover:bg-opacity-90"
@@ -39,13 +39,13 @@ export default function Home() {
         </Link>
       </header>
 
-      <main className="grow">
-        <div className="flex flex-col items-center">
-          <Tab.Group>
+      <main className="flex-grow ">
+        <div className="flex flex-col items-center h-full">
+          <Tab.Group >
             <Tab.List className="flex items center gap-24">
 
             {tabs.map(tab => (
-                <Tab key={tab.key}>
+                <Tab key={tab.key} className="p-2">
                 {({ selected }) => (
                   <span className={selected ? 'text-white' : 'text-stone-600'}>
                     {tab.display}
@@ -55,16 +55,16 @@ export default function Home() {
 
             ))}
             </Tab.List>
-            <Tab.Panels>
-              <Tab.Panel>All Images</Tab.Panel>
+            <Tab.Panels  className=" h-full bg-stone-600 bg-opacity-20 max-w-[900px] w-full p-2 sm:p-4 my-6">
+              <Tab.Panel >All Images</Tab.Panel>
               <Tab.Panel>Digital</Tab.Panel>
-              <Tab.Panel>By hand </Tab.Panel>
+              <Tab.Panel>More </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
         </div>
       </main>
-      <footer className="h-[60px]">
-        <p>footer</p>
+      <footer className="h-[60px] flex justicy-center items-center">
+        <p>IA images generated Portfolio</p>
       </footer>
     </div>
   );
