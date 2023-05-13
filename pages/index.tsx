@@ -32,6 +32,8 @@ import lgZoom from "lightgallery/plugins/zoom";
 import { useRef } from "react";
 import type { LightGallery } from "lightgallery/lightgallery";
 
+
+
 const tabs = [
   {
     key: "all",
@@ -88,29 +90,38 @@ export default function Home() {
         placeholder="blur"
       />
 
-      <div className="fixed left-0 top-0 w-full h-full z-10 from-stone-800 bg-gradient-to-t"></div>
+      <div className="fixed left-0 top-0 w-full h-full z-10  from-stone-800 bg-gradient-to-t  from-stone-960 bg-gradient-to-b"></div>
 
       <header className="fixed top-0 w-full z-30 flex justify-between items-center h-[70px] px-10">
         <span className="uppercase text-lg font-medium hover:tracking-wide">Portfolio</span>
         <Link
           href="#"
-          className="rounded-3xl bg-white text-stone-700 px-3 py-2 hover:bg-opacity-90"
+          className=" hover:rounded-tl-3xl text-grey bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-3xl text-sm px-5 py-2.5 text-center mr-2 mb-2"
         >
-          <button>Get in touch</button>
+          
+          <button className="" >
+             get in touch
+         
+             </button>
         </Link>
       </header>
 
       <main className="relative pt-[110px] z-20">
         <div className="flex flex-col items-center h-full">
-          <Tab.Group>
+          <Tab.Group >
             <Tab.List className="flex items center gap-24 font-thin  ">
               {tabs.map((tab) => (
-                <Tab id="tab" key={tab.key} className="p-2 transition ease-in-out delay-150   hover:tracking-[6px]  hover:transition-all hover:-translate-y-1 hover:scale-110 hover:bg-black-500 duration-300 ">
+                <Tab id="tab" key={tab.key} className="p-2 relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+                before:bottom-0 before:left-0 before:bg-black
+                before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+                before:transition before:ease-in-out before:duration-300 transition ease-in-out delay-150  hover:tracking-[6px]  hover:transition-all hover:-translate-y-1 hover:scale-110 hover:bg-transparent duration-200 
+                
+                ">
                   {({ selected }) => (
                     <span
                       className={classNames(
                         "uppercase text-lg ",
-                        selected ? "text-white" : "text-stone-600"
+                        selected ? "text-white" : "text-stone-500"
                       )}
                     >
                       {tab.display}
@@ -131,7 +142,7 @@ export default function Home() {
                       key={image.src}
                       src={image}
                       alt="placeholder"
-                      className="my-9 hover:opacity-90 cursor-pointer" 
+                      className="my-9 hover:opacity-80 cursor-pointer" 
                       placeholder="blur"
                       onClick={() => {
                         lightboxRef.current?.openGallery(idx)
