@@ -31,8 +31,7 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import { useRef } from "react";
 import type { LightGallery } from "lightgallery/lightgallery";
-
-
+import { HeartIcon } from "@heroicons/react/24/solid";
 
 const tabs = [
   {
@@ -93,30 +92,34 @@ export default function Home() {
       <div className="fixed left-0 top-0 w-full h-full z-10  from-stone-800 bg-gradient-to-t  from-stone-960 bg-gradient-to-b"></div>
 
       <header className="fixed top-0 w-full z-30 flex justify-between items-center h-[70px] px-10">
-        <span className="uppercase text-lg font-medium hover:tracking-wide">Portfolio</span>
+        <span className="uppercase text-lg font-medium hover:tracking-wide">
+          Portfolio
+        </span>
         <Link
           href="#"
-          className=" hover:rounded-tl-3xl text-grey bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-3xl text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-900 to-blue-600 group-hover:from-purple-900 group-hover:to-blue-300 hover:text-white dark:text-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 "
         >
-          
-          <button className="" >
-             get in touch
-         
-             </button>
+          <button className="relative px-0.2 py-2 transition-all ease-in duration-95 bg-white dark:bg-gray-900 rounded-sm group-hover:bg-opacity-0">
+            <HeartIcon className="h-6 w-20 text-white-500 items-center " />
+          </button>
         </Link>
       </header>
 
       <main className="relative pt-[110px] z-20">
         <div className="flex flex-col items-center h-full">
-          <Tab.Group >
-            <Tab.List className="flex items center gap-24 font-thin  ">
+          <Tab.Group>
+            <Tab.List className="flex items center gap-24 absolute inset-0 z-0 cursor-pointer bg-cover bg-center rounded-full hover:shadow-2xl ">
               {tabs.map((tab) => (
-                <Tab id="tab" key={tab.key} className="p-2 relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+                <Tab
+                  id="tab"
+                  key={tab.key}
+                  className="p-2 relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
                 before:bottom-0 before:left-0 before:bg-black
                 before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
                 before:transition before:ease-in-out before:duration-300 transition ease-in-out delay-150  hover:tracking-[6px]  hover:transition-all hover:-translate-y-1 hover:scale-110 hover:bg-transparent duration-200 
                 
-                ">
+                "
+                >
                   {({ selected }) => (
                     <span
                       className={classNames(
@@ -142,10 +145,10 @@ export default function Home() {
                       key={image.src}
                       src={image}
                       alt="placeholder"
-                      className="my-9 hover:opacity-80 cursor-pointer" 
+                      className="my-9 hover:opacity-80 cursor-pointer"
                       placeholder="blur"
                       onClick={() => {
-                        lightboxRef.current?.openGallery(idx)
+                        lightboxRef.current?.openGallery(idx);
                       }}
                     />
                   ))}
@@ -160,11 +163,10 @@ export default function Home() {
                   speed={500}
                   plugins={[lgThumbnail, lgZoom]}
                   dynamic
-                  dynamicEl={ images.map((image) => ({
+                  dynamicEl={images.map((image) => ({
                     src: image.src,
-                    thumb:image.src
+                    thumb: image.src,
                   }))}
-
                 ></LightGalleryComponent>
               </Tab.Panel>
               <Tab.Panel>Digital</Tab.Panel>
