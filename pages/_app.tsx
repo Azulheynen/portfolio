@@ -7,6 +7,7 @@ const expletusSans = Expletus_Sans({
   variable: "--font-expletus",
 });
 
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${expletusSans.variable} h-full`}>

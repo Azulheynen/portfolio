@@ -4,10 +4,12 @@ import bgImage from "../public/images/background.jpeg";
 import Image from "next/image";
 import { HeartIcon } from '@heroicons/react/24/solid'
 import ImageGallery from "@/components/ImageGallery";
-
+import { useState } from "react";
+import { useRouter } from "next/router";
+import PostImage from "./ImageUploader"
 
 export default function Home() {
- 
+
   return (
     <div className=" h-full overflow-auto  ">
       <Head>
@@ -41,6 +43,7 @@ export default function Home() {
       <main className="relative pt-[110px] z-20">
         <div className="flex flex-col items-center h-full">
          
+         <PostImage />
          <ImageGallery />
         
         </div>
