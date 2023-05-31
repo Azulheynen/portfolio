@@ -70,7 +70,7 @@ export default function ImageGallery() {
       </Tab.List>
       <Tab.Panels className=" h-full  max-w-[900px] w-full p-2 sm:p-4 my-6 ">
         <Tab.Panel>
-          <Masonry breakpointCols={2} className="flex gap-4" columnClassName="">
+          <Masonry breakpointCols={2} className="flex gap-4 z-40" columnClassName="" >
             {imageList.map((image, idx) => (
               <Image
                 key={idx}
@@ -95,8 +95,8 @@ export default function ImageGallery() {
             plugins={[lgThumbnail, lgZoom]}
             dynamic
             dynamicEl={imageList.map((image) => ({
-              src: image.src,
-              thumb: image.src,
+              src: image.default.src,
+              thumb: image.default.src,
             }))}
           ></LightGalleryComponent>
         </Tab.Panel>{" "}
